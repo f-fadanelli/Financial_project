@@ -3,9 +3,16 @@ spring:
     name: fin-project
 
   datasource:
+    url: jdbc:postgresql://postgres:5432/postgres
+    username: postgres
+    password: admin
     driver-class-name: org.postgresql.Driver
 
   rabbitmq:
+    host: rabbit
+    port: 5672
+    username: guest
+    password: guest
     virtual-host: /
 
   jpa:

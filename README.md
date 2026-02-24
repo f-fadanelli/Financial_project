@@ -16,18 +16,13 @@ A comprehensive financial account management platform built with **Java Spring B
 - Support for multiple stock exchanges
 - Automated price updates
 
-### Security & Access Control
-- Role-based access (admin, advisor, client)
-- Encrypted data storage
-- Secure authentication
-
 ---
 
 ## 🛠️ Tech Stack
 
 - **Backend:** Java, Spring Boot  
 - **Database:** PostgreSQL  
-- **Authentication:** JWT  
+- **Events:** RabbitMQ
 - **Build Tool:** Maven 
 
 ---

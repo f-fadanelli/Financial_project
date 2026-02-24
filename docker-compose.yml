@@ -5,15 +5,26 @@ services:
     ports:
       - "37229:37229"
     depends_on:
+      - postgres
       - rabbit
     environment:
-      SPRING_DATASOURCE_URL: jdbc:postgresql://fin-project-db.c83uay004wv0.us-east-1.rds.amazonaws.com:5432/postgres?sslmode=require
+      SPRING_DATASOURCE_URL: jdbc:postgresql://postgres:5432/postgres
       SPRING_DATASOURCE_USERNAME: postgres
-      SPRING_DATASOURCE_PASSWORD: mypassword
+      SPRING_DATASOURCE_PASSWORD: admin
       SPRING_RABBITMQ_HOST: rabbit
       SPRING_RABBITMQ_PORT: 5672
       SPRING_RABBITMQ_USERNAME: guest
       SPRING_RABBITMQ_PASSWORD: guest
+
+  postgres:
+    image: postgres:15-alpine
+    container_name: fin-project-postgres
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: admin
+      POSTGRES_DB: postgres
+    ports:
+      - "37228:5432"
 
   rabbit:
     image: rabbitmq:3-management
