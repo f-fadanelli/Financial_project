@@ -1,0 +1,23 @@
+services:
+  app:
+    build: .
+    container_name: fin-project-app
+    ports:
+      - "37229:37229"
+    depends_on:
+      - rabbit
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:postgresql://fin-project-db.c83uay004wv0.us-east-1.rds.amazonaws.com:5432/postgres?sslmode=require
+      SPRING_DATASOURCE_USERNAME: postgres
+      SPRING_DATASOURCE_PASSWORD: mypassword
+      SPRING_RABBITMQ_HOST: rabbit
+      SPRING_RABBITMQ_PORT: 5672
+      SPRING_RABBITMQ_USERNAME: guest
+      SPRING_RABBITMQ_PASSWORD: guest
+
+  rabbit:
+    image: rabbitmq:3-management
+    container_name: fin-project-rabbit
+    ports:
+      - "5672:5672"
+      - "15672:15672"

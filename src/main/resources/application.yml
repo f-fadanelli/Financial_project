@@ -1,0 +1,24 @@
+spring:
+  application:
+    name: fin-project
+
+  datasource:
+    driver-class-name: org.postgresql.Driver
+
+  rabbitmq:
+    virtual-host: /
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+
+server:
+  port: 37229
+
+market:
+  alphavantage:
+    base-url: https://www.alphavantage.co/query
+    api-key: AJYA6A11IA4HBYBI
